@@ -1,4 +1,6 @@
-<?php namespace Knovators\Support;
+<?php
+
+namespace Knovators\Support;
 
 use Knovators\Support\Exceptions\PackageException;
 use Illuminate\Contracts\Foundation\Application;

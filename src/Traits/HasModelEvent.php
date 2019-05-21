@@ -4,7 +4,6 @@
 namespace Knovators\Support\Traits;
 
 use Illuminate\Database\Eloquent\Model;
-use phpDocumentor\Reflection\Types\Parent_;
 
 
 /**

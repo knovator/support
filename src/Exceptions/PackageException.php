@@ -1,4 +1,8 @@
-<?php namespace Knovators\Support\Exceptions;
+<?php
+
+
+
+namespace Knovators\Support\Exceptions;
 /**
  * Class     PackageException
  *

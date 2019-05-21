@@ -1,4 +1,6 @@
-<?php namespace Knovators\Support;
+<?php
+
+namespace Knovators\Support;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Foundation\AliasLoader;
