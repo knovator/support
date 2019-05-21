@@ -1,0 +1,18 @@
+{
+    "name": "knovators/support",
+    "description": "Support helpers",
+    "type": "library",
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Knovators\\Support\\": "src/"
+        },
+        "files": ["helpers.php"]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Knovators\\Support\\Tests\\": "tests/"
+        }
+    }
+}
