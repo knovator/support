@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use ReflectionClass;
 
 /**
- * Class     PackageServiceProvider
+ * Class PackageServiceProvider
  *
  * @package  Knovators\Support\Laravel
  */

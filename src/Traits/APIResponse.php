@@ -12,7 +12,7 @@ use Knovators\Support\Helpers\HTTPCode;
 
 /**
  * Trait APIResponse
- * @package App\Modules\Support
+ * @package Knovators\Support\Traits
  */
 trait APIResponse
 {

@@ -7,7 +7,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
  * Trait HasResourceCollection
- * @package App\Support
+ * @package Knovators\Support\Traits
  */
 trait HasResourceCollection
 {

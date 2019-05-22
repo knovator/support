@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Trait HasModelEvent
- * @package App\Modules\Support
+ * @package Knovators\Support\Traits
  */
 trait HasModelEvent
 {

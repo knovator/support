@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 /**
  * Class UploadService
- * @package App\Services
+ * @package Knovators\Support\Helpers
  */
 class UploadService
 {

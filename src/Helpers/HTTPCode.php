@@ -6,7 +6,7 @@ namespace Knovators\Support\Helpers;
 
 /**
  * Class HTTPCode
- * @package App\Modules\Support
+ * @package Knovators\Support\Helpers
  */
 class HTTPCode
 {
