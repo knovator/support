@@ -16,7 +16,7 @@ trait HasModelEvent
     public static function boot() {
         parent::boot();
         self::creatingEvent();
-        self::deletingEvent();
+        self::deletedEvent();
     }
 
     public static function creatingEvent() {
@@ -25,9 +25,10 @@ trait HasModelEvent
         });
     }
 
-    public static function deletingEvent() {
-        static::deleting(function (Model $model) {
+    public static function deletedEvent() {
+        static::deleted(function (Model $model) {
             $model->deleted_by = isset(auth()->user()->id) ? auth()->user()->id : null;
+            $model->save();
         });
     }
 
