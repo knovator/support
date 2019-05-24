@@ -4,7 +4,6 @@
 namespace Knovators\Support\Traits;
 
 use Illuminate\Support\Collection;
-use Knovators\Support\Helpers\HTTPCode;
 
 
 /**
@@ -16,13 +15,13 @@ trait DestroyObject
 
 
     /**
-     * @param      $relations
-     * @param      $model
-     * @param      $moduleLabel
-     * @param bool $moduleName
+     * @param $relations
+     * @param $model
+     * @param $moduleLabel
      * @return mixed
      */
-    public function destroyModelObject($relations, $model, $moduleLabel, $moduleName = false) {
+    public function destroyModelObject($relations, $model, $moduleLabel)
+    {
         foreach ($relations as $relation) {
             $model->load($relation);
             $dataCollection = $model->{$relation};
@@ -30,7 +29,7 @@ trait DestroyObject
                 ((!$dataCollection instanceof Collection) && (!is_null($dataCollection)))) {
                 return $this->sendResponse(null,
                     __('messages.associated', [
-                        'module'  => $moduleLabel,
+                        'module' => $moduleLabel,
                         'related' => preg_replace('/(?<!\ )[A-Z]/', ' $0', ucwords($relation))
                     ]),
                     HTTPCode::UNPROCESSABLE_ENTITY);
@@ -38,13 +37,7 @@ trait DestroyObject
         }
         $model->delete();
 
-
-        $moduleName = $moduleName ? $moduleName . '::' : '';
-
-        return $this->sendResponse(null, trans($moduleName . 'messages.deleted', [
-            'module' =>
-                $moduleLabel
-        ]),
+        return $this->sendResponse(null, __('messages.deleted', ['module' => $moduleLabel]),
             HTTPCode::OK);
     }
 }

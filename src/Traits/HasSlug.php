@@ -6,7 +6,7 @@ namespace Knovators\Support\Traits;
 
 /**
  * Trait HasSlugMaker
- * @package Knovators\Support\Traits
+ * @package App\Modules\Support
  */
 trait HasSlug
 {

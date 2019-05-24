@@ -1,6 +1,4 @@
-<?php
-
-namespace Knovators\Support;
+<?php namespace Knovators\Support;
 
 use Knovators\Support\Exceptions\PackageException;
 use Illuminate\Contracts\Foundation\Application;
@@ -8,7 +6,7 @@ use Illuminate\Support\Str;
 use ReflectionClass;
 
 /**
- * Class PackageServiceProvider
+ * Class     PackageServiceProvider
  *
  * @package  Knovators\Support\Laravel
  */
@@ -28,7 +26,7 @@ abstract class PackageServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $vendor = 'knovators';
+    protected $vendor = 'arcanedev';
 
     /**
      * Package name.
@@ -212,7 +210,6 @@ abstract class PackageServiceProvider extends ServiceProvider
 
     /**
      * Register the service provider.
-     * @throws PackageException
      */
     public function register()
     {
@@ -233,7 +230,6 @@ abstract class PackageServiceProvider extends ServiceProvider
      */
     protected function registerConfig($separator = '.')
     {
-
         $this->multiConfigs
             ? $this->registerMultipleConfigs($separator)
             : $this->mergeConfigFrom($this->getConfigFile(), $this->getConfigKey());
@@ -256,12 +252,12 @@ abstract class PackageServiceProvider extends ServiceProvider
     /**
      * Register commands service provider.
      *
-     * @param  array $commands
+     * @param  \Illuminate\Support\ServiceProvider|string  $provider
      */
-    protected function registerCommands($commands)
+    protected function registerCommands($provider)
     {
         if ($this->app->runningInConsole())
-            $this->commands($commands);
+            $this->app->register($provider);
     }
 
     /**

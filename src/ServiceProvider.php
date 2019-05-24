@@ -1,13 +1,11 @@
-<?php
-
-namespace Knovators\Support;
+<?php namespace Knovators\Support;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
 
 /**
- * Class ServiceProvider
+ * Class     ServiceProvider
  *
  * @package  Knovators\Support\Laravel
 

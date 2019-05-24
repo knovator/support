@@ -4,11 +4,12 @@
 namespace Knovators\Support\Traits;
 
 use Illuminate\Database\Eloquent\Model;
+use phpDocumentor\Reflection\Types\Parent_;
 
 
 /**
  * Trait HasModelEvent
- * @package Knovators\Support\Traits
+ * @package App\Modules\Support
  */
 trait HasModelEvent
 {
@@ -16,7 +17,7 @@ trait HasModelEvent
     public static function boot() {
         parent::boot();
         self::creatingEvent();
-        self::deletedEvent();
+        self::deletingEvent();
     }
 
     public static function creatingEvent() {
@@ -25,15 +26,14 @@ trait HasModelEvent
         });
     }
 
-    public static function deletedEvent() {
-        static::deleted(function (Model $model) {
+    public static function deletingEvent() {
+        static::deleting(function (Model $model) {
             $model->deleted_by = isset(auth()->user()->id) ? auth()->user()->id : null;
-            $model->save();
         });
     }
 
 
-    public static function updatingEvent() {
+    public static function updatedEvent() {
         static::updating(function (Model $model) {
             $model->updated_by = isset(auth()->user()->id) ? auth()->user()->id : null;
         });

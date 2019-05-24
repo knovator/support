@@ -6,7 +6,7 @@ namespace Knovators\Support\Traits;
 
 /**
  * Trait StoreWithTrashedRecord
- * @package Knovators\Support\Traits
+ * @package App\Modules\Support
  */
 trait StoreWithTrashedRecord
 {

@@ -7,7 +7,7 @@ use Prettus\Repository\Eloquent\BaseRepository as Repository;
 
 /**
  * Class BaseRepository
- * @package Knovators\Support\Traits
+ * @package App\Modules\User\Repository
  */
 abstract class BaseRepository extends Repository
 {
