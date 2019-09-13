@@ -23,13 +23,11 @@ trait APIResponse
      * @param Validator $validator
      */
     protected function failedValidation(Validator $validator) {
-        $validator = $validator->errors();
-        if(!empty($validator)){
-            throw new HttpResponseException($this->sendResponse(null,
-                $validator->first(),
-                HTTPCode::UNPROCESSABLE_ENTITY));
-        }
+        throw new HttpResponseException($this->sendResponse(null,
+            $validator->errors(),
+            HTTPCode::UNPROCESSABLE_ENTITY));
     }
+
 
     /**
      * Send Response for current request in json format
