@@ -7,7 +7,7 @@ Features:
 - Generate dynamic slug with using specified column
 - update trashed record
 - yajra datatable overwritted
-You want to need add http logger repository in your composer.json file.
+You want to need add support repository in your composer.json file.
 
 ```
 "repositories": [
