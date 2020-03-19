@@ -23,11 +23,9 @@ trait DestroyObject
      * @return mixed
      */
     public function destroyModelObject($relations, $model, $moduleLabel, $moduleName = false) {
+        
         foreach ($relations as $relation) {
-            $model->load($relation);
-            $dataCollection = $model->{$relation};
-            if (($dataCollection instanceof Collection && $dataCollection->isNotEmpty()) ||
-                ((!$dataCollection instanceof Collection) && (!is_null($dataCollection)))) {
+            if ($model->$relation()->count()) {
                 return $this->sendResponse(null,
                     __('messages.associated', [
                         'module'  => $moduleLabel,
@@ -37,8 +35,6 @@ trait DestroyObject
             }
         }
         $model->delete();
-
-
         $moduleName = $moduleName ? $moduleName . '::' : '';
 
         return $this->sendResponse(null, trans($moduleName . 'messages.deleted', [
