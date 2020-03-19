@@ -14,7 +14,6 @@ use Knovators\Support\Helpers\HTTPCode;
 trait DestroyObject
 {
 
-
     /**
      * @param      $relations
      * @param      $model
