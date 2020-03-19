@@ -22,9 +22,9 @@ trait DestroyObject
      * @return mixed
      */
     public function destroyModelObject($relations, $model, $moduleLabel, $moduleName = false) {
-        
+
         foreach ($relations as $relation) {
-            if ($model->$relation()->count()) {
+            if ($model->$relation()->exists() && $model->$relation()->count()) {
                 return $this->sendResponse(null,
                     __('messages.associated', [
                         'module'  => $moduleLabel,
