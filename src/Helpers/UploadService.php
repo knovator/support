@@ -2,6 +2,7 @@
 
 namespace Knovators\Support\Helpers;
 
+use Buglinjo\LaravelWebp\Facades\Webp;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -25,6 +26,12 @@ class UploadService
         if (is_string($file)) {
             $file = Storage::disk($driver)->write("$path/$name", $file);
         } else {
+            if (config('media.convert_in_webp')) {
+                $names = explode('.', $name);
+                $fileName = array_shift($names).'.webp';
+                $webp = Webp::make($file);
+                $webp->save(public_path($path . DIRECTORY_SEPARATOR .$fileName));
+            }
             $file->storeAs($path, $name, $driver);
         }
 
