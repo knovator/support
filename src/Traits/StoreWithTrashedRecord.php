@@ -24,7 +24,8 @@ trait StoreWithTrashedRecord
             $data = $this->model->onlyTrashed()->where([$column => $value])->first();
             if ($data) {
                 /** @var Model $data */
-                return $data->update($input);
+                 $data->update($input);
+                 return $data;
             } else {
                 return $this->model->create($input);
             }
