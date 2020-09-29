@@ -10,6 +10,7 @@ namespace Knovators\Support\Traits;
  */
 trait StoreWithTrashedRecord
 {
+
     /**
      * @param $column
      * @param $value
@@ -17,21 +18,23 @@ trait StoreWithTrashedRecord
      * @return
      */
     public function createOrUpdateTrashed($column, $value, $input) {
-
         $input['deleted_at'] = null;
         $db = config('authentication.db');
+        $model = $this->model;
+        $data = (clone $model)->onlyTrashed()->where([$column => $value])->first();
         if ($db && $db === 'mongodb') {
-            $data = $this->model->onlyTrashed()->where([$column => $value])->first();
             if ($data) {
+                $input['deleted_at'] = null;
                 /** @var Model $data */
-                return $data->update($input);
+                $data->update($input);
             } else {
-                return $this->model->create($input);
+                $data = (clone $model)->create($input);
             }
         } else {
-
-            return $this->model->onlyTrashed()->updateOrCreate([$column => $value], $input);
+            $data = (clone $model)->onlyTrashed()->updateOrCreate([$column => $value], $input);
         }
+
+        return $data;
 
     }
 }

@@ -22,16 +22,9 @@ class UploadService
      * @return mixed
      */
     public static function storeMedia($file, $path, $name, $driver) {
-
         if (is_string($file)) {
             $file = Storage::disk($driver)->write("$path/$name", $file);
         } else {
-            if (config('media.convert_in_webp')) {
-                $names = explode('.', $name);
-                $fileName = array_shift($names).'.webp';
-                $webp = Webp::make($file);
-                $webp->save(public_path($path . DIRECTORY_SEPARATOR .$fileName));
-            }
             $file->storeAs($path, $name, $driver);
         }
 

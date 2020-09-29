@@ -21,7 +21,7 @@ class IsActiveCriteria implements CriteriaInterface
      * @return mixed
      */
     public function apply($model, RepositoryInterface $repository) {
-        $model = $model->where('is_active', '=', 1);
+        $model = $model->where('is_active', '=', true);
 
         return $model;
     }

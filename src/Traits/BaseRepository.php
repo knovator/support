@@ -4,6 +4,7 @@ namespace Knovators\Support\Traits;
 
 
 use Prettus\Repository\Eloquent\BaseRepository as Repository;
+use Prettus\Repository\Exceptions\RepositoryException;
 
 /**
  * Class BaseRepository
@@ -17,7 +18,7 @@ abstract class BaseRepository extends Repository
      * @param null  $value
      * @param array $columns
      * @return mixed
-     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     * @throws RepositoryException
      */
     public function findBy($field, $value, $columns = ['*']) {
         $this->applyCriteria();
@@ -36,7 +37,7 @@ abstract class BaseRepository extends Repository
      * @param array $columns
      *
      * @return mixed
-     * @throws \Prettus\Repository\Exceptions\RepositoryException
+     * @throws RepositoryException
      */
     public function find($id, $columns = ['*']) {
         $model = $this->model->find($id, $columns);

@@ -22,7 +22,7 @@ class OrderByNameCriteria implements CriteriaInterface
      * @return mixed
      */
     public function apply($model, RepositoryInterface $repository) {
-        $model = $model->orderBy('name','asc');
+        $model = $model->orderBy('name');
         return $model;
     }
 }
