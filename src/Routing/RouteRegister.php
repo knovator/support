@@ -4,16 +4,16 @@
 namespace Knovators\Support\Routing;
 
 /**
- * Class     RouteRegistrar
+ * Class     RouteRegister
  *
  * @package  Knovators\Support\Laravel
  *
- * @method  \Knovators\Support\Routing\RouteRegistrar  as(string $name)
- * @method  \Knovators\Support\Routing\RouteRegistrar  domain(string $domain)
- * @method  \Knovators\Support\Routing\RouteRegistrar  middleware(string $middleware)
- * @method  \Knovators\Support\Routing\RouteRegistrar  name(string $name)
- * @method  \Knovators\Support\Routing\RouteRegistrar  namespace(string $namespace)
- * @method  \Knovators\Support\Routing\RouteRegistrar  prefix(string $prefix)
+ * @method  \Knovators\Support\Routing\RouteRegister  as(string $name)
+ * @method  \Knovators\Support\Routing\RouteRegister  domain(string $domain)
+ * @method  \Knovators\Support\Routing\RouteRegister  middleware(string $middleware)
+ * @method  \Knovators\Support\Routing\RouteRegister  name(string $name)
+ * @method  \Knovators\Support\Routing\RouteRegister  namespace(string $namespace)
+ * @method  \Knovators\Support\Routing\RouteRegister  prefix(string $prefix)
  * @method  void                                       group(...$mixed)
  *
  * @method  \Illuminate\Routing\Route  get(string $uri, \Closure|array|string|null $action = null)
@@ -36,7 +36,7 @@ namespace Knovators\Support\Routing;
  *
  * @method  void  aliasMiddleware(string $name, string $class)
  */
-abstract class RouteRegistrar
+abstract class RouteRegister
 {
     /* -----------------------------------------------------------------
      |  Main Methods

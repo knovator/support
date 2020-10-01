@@ -2,7 +2,7 @@
 
 
 namespace Knovators\Support\Traits;
-
+use Illuminate\Support\Str;
 
 /**
  * Trait HasSlugMaker
@@ -38,7 +38,7 @@ trait HasSlug
             $slug .= '-' . $this->$column;
         }
 
-        return str_slug($slug);
+        return Str::slug($slug);
     }
 
     /**
