@@ -13,15 +13,15 @@ You want to need add support repository in your composer.json file.
 "repositories": [
           {
               "type": "vcs",
-              "url": "git@git.knovator.in:knovators/support.git"
+              "url": "git@github.com:knovator/support.git"
           }
       ],
 ```
 
-Require the knovators/support package in your composer.json and update your dependencies:
+Require the knovator/support package in your composer.json and update your dependencies:
 
 ```
-    composer require knovators/support
+    composer require knovator/support
  ```
 
-website : [ https://git.knovator.in/knovators/support ]
+website : [ https://github.com/knovator/support ]
